@@ -386,10 +386,10 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
         </ul>
       </div>
       <div class="reveal-right">
-        <form class="booking-form" name="prenotazioni" method="POST" action="https://api.web3forms.com/submit">
+        <form class="booking-form" id="bookingForm" name="prenotazioni">
           <input type="hidden" name="access_key" value="13c7ab12-d78b-41a9-9a1f-ced97964ff9c"/>
           <input type="hidden" name="subject" value="Nuova richiesta shooting — Bi.elle Shot"/>
-          <input type="hidden" name="redirect" value="https://bielleshot.it/thanks.html"/>
+          
           
           
           <div class="form-row">
@@ -408,7 +408,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
             </select>
           </div>
           <div class="form-group"><label>Note aggiuntive</label><textarea name="note" placeholder="Location preferita, data, richieste particolari..."></textarea></div>
-          <button type="submit" class="btn btn-primary" style="width:100%;border:none;margin-top:.5rem;">Invia Richiesta</button>
+          <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;border:none;margin-top:.5rem;">Invia Richiesta</button>
         </form>
       </div>
     </div>
@@ -437,7 +437,22 @@ const ov=document.getElementById('navOverlay');
 function toggle(){ ham.classList.toggle('open'); drop.classList.toggle('open'); ov.classList.toggle('open'); document.body.style.overflow=drop.classList.contains('open')?'hidden':''; }
 ham.addEventListener('click',toggle);
 ov.addEventListener('click',toggle);
-drop.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(drop.classList.contains('open')) toggle(); }));
+drop.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{ if(drop.classList.contains("open")) toggle(); }));
+document.getElementById("bookingForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+  const btn=document.getElementById("submitBtn");
+  btn.textContent="Invio in corso...";
+  btn.disabled=true;
+  const data=new FormData(this);
+  data.append("access_key","13c7ab12-d78b-41a9-9a1f-ced97964ff9c");
+  data.append("subject","Nuova richiesta shooting — Bi.elle Shot");
+  try{
+    const res=await fetch("https://api.web3forms.com/submit",{method:"POST",body:data});
+    const json=await res.json();
+    if(json.success){ window.location.href="https://bielleshot.it/thanks.html"; }
+    else{ btn.textContent="Errore, riprova"; btn.disabled=false; }
+  }catch(err){ btn.textContent="Errore, riprova"; btn.disabled=false; }
+});
 </script>
 
 </body></html>
