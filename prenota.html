@@ -386,7 +386,19 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
         </ul>
       </div>
       <div class="reveal-right">
-        <form class="booking-form" name="prenotazioni" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thanks">
+        <form action="https://formspree.io/f/xjglnnkn" method="POST">
+
+  <input type="text" name="name" required>
+
+  <input type="email" name="email" required>
+
+  <textarea name="message"></textarea>
+
+  <input type="hidden" name="_redirect" value="https://bielleshot.it/thanks.html">
+
+  <button type="submit">Invia</button>
+
+</form>
           <input type="hidden" name="form-name" value="prenotazioni"/>
           <p style="display:none;"><input name="bot-field"/></p>
           <div class="form-row">
