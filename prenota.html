@@ -386,7 +386,9 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
         </ul>
       </div>
       <div class="reveal-right">
-        <form class="booking-form" name="prenotazioni" method="POST"  action="https://formspree.io/f/xjglnnkn">
+        <form class="booking-form" name="prenotazioni" method="POST" action="https://formspree.io/f/xjglnnkn">
+          <input type="hidden" name="_next" value="https://bielleshot.it/thanks.html"/>
+          <input type="hidden" name="_subject" value="Nuova richiesta shooting — Bi.elle Shot"/>
           <div class="form-row">
             <div class="form-group"><label>Nome</label><input type="text" name="nome" placeholder="Il tuo nome" required/></div>
             <div class="form-group"><label>Cognome</label><input type="text" name="cognome" placeholder="Il tuo cognome"/></div>
