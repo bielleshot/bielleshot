@@ -443,15 +443,21 @@ document.getElementById("bookingForm").addEventListener("submit",async function(
   const btn=document.getElementById("submitBtn");
   btn.textContent="Invio in corso...";
   btn.disabled=true;
-  const data=new FormData(this);
-  data.append("access_key","13c7ab12-d78b-41a9-9a1f-ced97964ff9c");
-  data.append("subject","Nuova richiesta shooting — Bi.elle Shot");
+  const formData=new FormData(this);
+  const obj={};
+  formData.forEach((v,k)=>obj[k]=v);
+  obj.access_key="13c7ab12-d78b-41a9-9a1f-ced97964ff9c";
+  obj.subject="Nuova richiesta shooting — Bi.elle Shot";
   try{
-    const res=await fetch("https://api.web3forms.com/submit",{method:"POST",body:data});
+    const res=await fetch("https://api.web3forms.com/submit",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(obj)
+    });
     const json=await res.json();
     if(json.success){ window.location.href="https://bielleshot.it/thanks.html"; }
-    else{ btn.textContent="Errore, riprova"; btn.disabled=false; }
-  }catch(err){ btn.textContent="Errore, riprova"; btn.disabled=false; }
+    else{ btn.textContent="Errore, riprova"; btn.disabled=false; console.error(json); }
+  }catch(err){ btn.textContent="Errore, riprova"; btn.disabled=false; console.error(err); }
 });
 </script>
 
