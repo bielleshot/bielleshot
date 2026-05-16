@@ -344,55 +344,6 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
   footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>
-
-/* Nav */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: linear-gradient(to bottom, rgba(5,5,5,.95), transparent); }
-.nav-logo img { height: 120px; filter: drop-shadow(0 0 12px rgba(168,168,160,.3)); transition: filter .4s; }
-.nav-logo img:hover { filter: drop-shadow(0 0 24px rgba(168,168,160,.6)); }
-
-/* Hamburger */
-.hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: .5rem; z-index: 1100; background: none; border: none; }
-.hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all .4s cubic-bezier(0.16,1,0.3,1); }
-.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* Dropdown menu */
-.nav-dropdown {
-  position: fixed; top: 0; right: 0; width: min(320px, 85vw); height: 100vh;
-  background: rgba(20,20,22,0.97); backdrop-filter: blur(20px);
-  z-index: 1050; display: flex; flex-direction: column; justify-content: center;
-  padding: 4rem 3rem;
-  transform: translateX(100%); transition: transform .5s cubic-bezier(0.16,1,0.3,1);
-  border-left: 1px solid rgba(168,168,160,.1);
-}
-.nav-dropdown.open { transform: translateX(0); }
-.nav-dropdown a {
-  display: block; font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
-  letter-spacing: .05em; color: var(--white); text-decoration: none;
-  padding: .6rem 0; border-bottom: 1px solid rgba(168,168,160,.08);
-  transition: color .3s ease, padding-left .3s ease;
-  opacity: 0; transform: translateX(20px);
-}
-.nav-dropdown.open a { opacity: 1; transform: translateX(0); }
-.nav-dropdown.open a:nth-child(1) { transition-delay: .05s; }
-.nav-dropdown.open a:nth-child(2) { transition-delay: .1s; }
-.nav-dropdown.open a:nth-child(3) { transition-delay: .15s; }
-.nav-dropdown.open a:nth-child(4) { transition-delay: .2s; }
-.nav-dropdown.open a:nth-child(5) { transition-delay: .25s; }
-.nav-dropdown.open a:nth-child(6) { transition-delay: .3s; }
-.nav-dropdown a:hover { color: var(--accent); padding-left: .5rem; }
-.nav-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,.5);
-  z-index: 1040; opacity: 0; pointer-events: none;
-  transition: opacity .4s ease;
-}
-.nav-overlay.open { opacity: 1; pointer-events: all; }
-.nav-dropdown .nav-social { margin-top: 2rem; display: flex; gap: 1.5rem; }
-.nav-dropdown .nav-social a { font-family: 'Space Mono', monospace; font-size: .6rem; letter-spacing: .2em; color: var(--text-muted); border: none; padding: 0; font-size: .55rem; }
-
-
-</style>
 </head>
 <body>
 <canvas id="particles"></canvas>
@@ -415,8 +366,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
     <span></span><span></span><span></span>
   </button>
 </nav>
-</div>
-
 
 
 <section class="hero" id="home">
