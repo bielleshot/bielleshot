@@ -3,352 +3,32 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
-<title>Bi.elle Shot — Bi.elle Shot</title>
+<title>Bi.elle Shot — Automotive Photography</title>
+<meta name="description" content="Bi.elle Shot: fotografia automotive professionale. Shooting su misura per la tua auto — outdoor, urbano, golden hour, notturno. Post-produzione inclusa."/>
+<meta property="og:title" content="Bi.elle Shot — Automotive Photography"/>
+<meta property="og:description" content="Fotografia automotive professionale. Shooting su misura per la tua auto."/>
+<meta property="og:image" content="https://bielleshot.it/og-image.jpg"/>
+<meta property="og:url" content="https://bielleshot.it/"/>
+<meta property="og:type" content="website"/>
+<link rel="canonical" href="https://bielleshot.it/"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --black: #000000;
-  --white: #e8f4f8;
-  --accent: #7ecfe0;
-  --grey: #080c0e;
-  --grey2: #0d1418;
-  --text-muted: #4a8a9a;
+<link rel="stylesheet" href="style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Photographer",
+  "name": "Bi.elle Shot",
+  "description": "Fotografia automotive professionale",
+  "url": "https://bielleshot.it",
+  "email": "bielleshot@gmail.com",
+  "sameAs": ["https://www.instagram.com/bi.elle_shot"]
 }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--accent); }
-
-html { scroll-behavior: smooth; }
-body { background: #000000; color: var(--white); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
-
-
-
-/* Canvas asphalt background */
-#particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 1; }
-
-/* Nav */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: linear-gradient(to bottom, rgba(0,0,0,.98), transparent); }
-.nav-logo img { height: 120px; filter: drop-shadow(0 0 12px rgba(168,168,160,.3)); transition: filter .4s; }
-.nav-logo img:hover { filter: drop-shadow(0 0 24px rgba(168,168,160,.6)); }
-
-/* Hamburger */
-.hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; padding: .6rem; background: none; border: none; z-index: 1100; }
-.hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: all .4s cubic-bezier(0.16,1,0.3,1); }
-.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-/* Dropdown panel */
-.nav-dropdown { position: fixed; top: 0; right: 0; width: min(300px,82vw); height: 100vh; background: rgba(0,0,0,0.99); backdrop-filter: blur(24px); z-index: 1050; display: flex; flex-direction: column; justify-content: center; padding: 4rem 2.5rem; transform: translateX(100%); transition: transform .5s cubic-bezier(0.16,1,0.3,1); border-left: 1px solid rgba(126,207,224,.12); }
-.nav-dropdown.open { transform: translateX(0); }
-.nav-dropdown a { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: .05em; color: var(--white); text-decoration: none; padding: .7rem 0; border-bottom: 1px solid rgba(168,168,160,.08); transition: color .3s, padding-left .3s; opacity: 0; transform: translateX(16px); transition: opacity .4s, transform .4s, color .3s, padding-left .3s; }
-.nav-dropdown.open a { opacity: 1; transform: translateX(0); }
-.nav-dropdown.open a:nth-child(1){transition-delay:.05s}
-.nav-dropdown.open a:nth-child(2){transition-delay:.1s}
-.nav-dropdown.open a:nth-child(3){transition-delay:.15s}
-.nav-dropdown.open a:nth-child(4){transition-delay:.2s}
-.nav-dropdown.open a:nth-child(5){transition-delay:.25s}
-.nav-dropdown.open a:nth-child(6){transition-delay:.3s}
-.nav-dropdown a:hover { color: var(--accent); padding-left: .6rem; }
-.nav-dropdown .nav-sub { margin-top: 2rem; display: flex; gap: 1.5rem; }
-.nav-dropdown .nav-sub a { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spacing: .15em; color: var(--text-muted); border: none; padding: 0; font-size: .55rem; opacity: 0; }
-.nav-dropdown.open .nav-sub a { opacity: 1; transition-delay: .35s; }
-.nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 1040; opacity: 0; pointer-events: none; transition: opacity .4s; }
-.nav-overlay.open { opacity: 1; pointer-events: all; }
-
-/* Hero */
-.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 6rem 2rem 4rem; }
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 50%, rgba(126,207,224,.04), transparent), radial-gradient(ellipse 40% 60% at 20% 60%, rgba(126,207,224,.03), transparent); }
-
-/* Horizontal line that draws */
-.hero-line { position: absolute; top: 50%; left: 0; width: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(126,207,224,.1), transparent); animation: drawLine 2.5s 0.3s ease forwards; }
-@keyframes drawLine { to { width: 100%; } }
-
-.hero-content { text-align: center; z-index: 1; }
-.hero-eyebrow { font-family: 'Space Mono', monospace; font-size: .65rem; letter-spacing: .6em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; margin-top: 3rem; opacity: 0; animation: fadeUp 1.2s .4s ease both; }
-
-.hero-logo { width: min(320px, 65vw); filter: drop-shadow(0 0 40px rgba(126,207,224,.15)); opacity: 0; animation: logoReveal 1.6s .6s cubic-bezier(0.16, 1, 0.3, 1) both, glow 4s 2.2s ease-in-out infinite alternate; }
-@keyframes logoReveal { from { opacity: 0; transform: scale(.92) translateY(20px); filter: drop-shadow(0 0 0px rgba(126,207,224,0)); } to { opacity: 1; transform: scale(1) translateY(0); filter: drop-shadow(0 0 40px rgba(126,207,224,.15)); } }
-@keyframes glow { from { filter: drop-shadow(0 0 20px rgba(126,207,224,.1)); } to { filter: drop-shadow(0 0 60px rgba(126,207,224,.3)); } }
-
-/* Tagline with char reveal */
-.hero-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: rgba(245,245,240,.5); margin-top: 2rem; opacity: 0; animation: fadeUp 1.2s 1.1s ease both; }
-
-.hero-cta { margin-top: 3rem; opacity: 0; animation: fadeUp 1.2s 1.4s ease both; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
-
-/* Decorative corner frames */
-.hero-corner { position: absolute; width: 60px; height: 60px; opacity: 0; animation: fadeIn 1.5s 1.8s ease both; }
-.hero-corner.tl { top: 8rem; left: 3rem; border-top: 1px solid rgba(126,207,224,.25); border-left: 1px solid rgba(126,207,224,.25); }
-.hero-corner.tr { top: 8rem; right: 3rem; border-top: 1px solid rgba(126,207,224,.25); border-right: 1px solid rgba(126,207,224,.25); }
-.hero-corner.bl { bottom: 3rem; left: 3rem; border-bottom: 1px solid rgba(126,207,224,.25); border-left: 1px solid rgba(126,207,224,.25); }
-.hero-corner.br { bottom: 3rem; right: 3rem; border-bottom: 1px solid rgba(126,207,224,.25); border-right: 1px solid rgba(126,207,224,.25); }
-
-/* Scroll indicator */
-.scroll-hint { display: flex; flex-direction: column; align-items: center; gap: .6rem; opacity: 0; animation: fadeIn 1.5s 2.2s ease both; margin-top: 2.5rem; }
-.scroll-hint span { font-family: 'Space Mono', monospace; font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); }
-.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollPulse 2s 2.5s ease-in-out infinite; }
-@keyframes scrollPulse { 0%,100% { opacity: .3; transform: scaleY(.8); } 50% { opacity: 1; transform: scaleY(1); } }
-
-/* Buttons */
-.btn { font-family: 'Space Mono', monospace; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; padding: .9rem 2rem; border: 1px solid; transition: all .4s cubic-bezier(0.16, 1, 0.3, 1); display: inline-block; position: relative; overflow: hidden; }
-.btn::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1); z-index: -1; }
-.btn-primary { background: var(--accent); color: var(--black); border-color: var(--accent); }
-.btn-primary:hover { background: transparent; color: var(--accent); }
-.btn-secondary { background: transparent; color: var(--white); border-color: rgba(245,245,240,.3); }
-.btn-secondary:hover { border-color: var(--accent); color: var(--black); }
-.btn-secondary:hover::before { transform: translateX(0); }
-
-/* Fade animations */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* Reveal on scroll */
-.reveal { opacity: 0; transform: translateY(50px); transition: opacity .9s cubic-bezier(0.16, 1, 0.3, 1), transform .9s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity .9s cubic-bezier(0.16, 1, 0.3, 1), transform .9s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal-left.visible { opacity: 1; transform: translateX(0); }
-.reveal-right { opacity: 0; transform: translateX(50px); transition: opacity .9s cubic-bezier(0.16, 1, 0.3, 1), transform .9s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal-right.visible { opacity: 1; transform: translateX(0); }
-
-/* Stagger delays */
-.delay-1 { transition-delay: .1s; }
-.delay-2 { transition-delay: .2s; }
-.delay-3 { transition-delay: .3s; }
-.delay-4 { transition-delay: .4s; }
-.delay-5 { transition-delay: .5s; }
-.delay-6 { transition-delay: .6s; }
-
-/* Sections */
-.section-wrap { padding: 6rem 3rem; max-width: 1400px; margin: 0 auto; }
-.section-label { font-family: 'Space Mono', monospace; font-size: .6rem; letter-spacing: .4em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: .05em; line-height: 1; color: var(--white); margin-bottom: 3rem; }
-
-/* Animated divider */
-.divider { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(126,207,224,.15), transparent); position: relative; overflow: hidden; }
-.divider::after { content: ''; position: absolute; top: 0; left: -100%; width: 60px; height: 100%; background: linear-gradient(to right, transparent, rgba(126,207,224,.7), transparent); animation: scanLine 4s 2s ease-in-out infinite; }
-@keyframes scanLine { 0% { left: -10%; } 100% { left: 110%; } }
-
-/* Gallery */
-.gallery-full { padding: 6rem 3rem; }
-.gallery-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
-
-/* Clip-path reveal on scroll */
-.gallery-item {
-  overflow: hidden; position: relative; background: var(--grey);
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.gallery-item.visible { clip-path: inset(0% 0 0 0); }
-.gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 2; transition-delay: .0s; }
-.gallery-item:nth-child(2) { grid-column: span 5; transition-delay: .1s; }
-.gallery-item:nth-child(3) { grid-column: span 5; transition-delay: .2s; }
-.gallery-item:nth-child(4) { grid-column: span 4; transition-delay: .15s; }
-.gallery-item:nth-child(5) { grid-column: span 4; transition-delay: .25s; }
-.gallery-item:nth-child(6) { grid-column: span 4; transition-delay: .35s; }
-
-/* Image: parallax + color shift */
-.gallery-item img {
-  width: 100%; height: 100%; min-height: 280px; object-fit: cover; display: block;
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease;
-  filter: brightness(1) saturate(1) contrast(1);
-  transform: scale(1.08);
-  will-change: transform;
-}
-.gallery-item.visible img { transform: scale(1.0); }
-.gallery-item:hover img { transform: scale(1.07) !important; filter: brightness(1.05) saturate(1.1) contrast(1); }
-
-/* Overlay gradient */
-.gallery-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(126,207,224,.06) 0%, transparent 50%, rgba(0,0,0,.9) 100%);
-  opacity: 0; transition: opacity .6s ease;
-  display: flex; align-items: flex-end; padding: 1.5rem;
-  z-index: 1;
-}
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-
-/* Light sweep effect */
-.gallery-item::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(126,207,224,.08) 50%, transparent 60%);
-  transform: translateX(-100%);
-  transition: transform .0s;
-  z-index: 2; pointer-events: none;
-}
-.gallery-item:hover::after {
-  transform: translateX(100%);
-  transition: transform .8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Border reveal */
-.gallery-item::before {
-  content: ''; position: absolute; inset: 0;
-  border: 1px solid rgba(126,207,224,0);
-  transition: border-color .5s ease;
-  z-index: 3; pointer-events: none;
-}
-.gallery-item:hover::before { border-color: rgba(126,207,224,.4); }
-
-.gallery-caption {
-  font-family: 'Space Mono', monospace; font-size: .6rem; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--accent);
-  transform: translateY(12px); opacity: 0;
-  transition: transform .5s ease, opacity .5s ease;
-  position: relative; z-index: 4;
-}
-.gallery-item:hover .gallery-caption { transform: translateY(0); opacity: 1; }
-
-/* About */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-.about-visual { position: relative; }
-.about-frame { width: 100%; aspect-ratio: 4/5; background: var(--grey); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.about-frame img { width: 70%; filter: drop-shadow(0 0 30px rgba(126,207,224,.15)); transition: filter .6s ease; }
-.about-frame:hover img { filter: drop-shadow(0 0 50px rgba(126,207,224,.35)); }
-.about-frame::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, rgba(126,207,224,.03), transparent); }
-
-/* Animated corners */
-.about-accent { position: absolute; top: -1rem; left: -1rem; width: 0; height: 0; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); transition: width .6s .2s ease, height .6s .2s ease; }
-.about-accent-br { position: absolute; bottom: -1rem; right: -1rem; width: 0; height: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); transition: width .6s .4s ease, height .6s .4s ease; }
-.about-visual.visible .about-accent,
-.about-visual.visible .about-accent-br { width: 3rem; height: 3rem; }
-
-.about-text p { font-size: 1.15rem; line-height: 1.9; color: rgba(245,245,240,.7); margin-bottom: 1.5rem; font-weight: 300; }
-.about-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(245,245,240,.08); }
-.stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--accent); line-height: 1; }
-.stat-label { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); margin-top: .3rem; }
-
-/* Booking */
-.booking-box { background: var(--grey); border: 1px solid rgba(126,207,224,.12); position: relative; overflow: hidden; padding: 5rem; transition: border-color .4s ease; }
-.booking-box:hover { border-color: rgba(126,207,224,.25); }
-.booking-box::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(126,207,224,.03), transparent 70%); pointer-events: none; animation: breathe 6s ease-in-out infinite; }
-@keyframes breathe { 0%,100% { opacity: .5; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
-
-.booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-.booking-info p { font-size: 1.1rem; line-height: 1.8; color: rgba(245,245,240,.6); margin-bottom: 2rem; font-weight: 300; }
-.services-list { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
-.services-list li { display: flex; align-items: center; gap: 1rem; font-family: 'Space Mono', monospace; font-size: .65rem; letter-spacing: .1em; color: rgba(245,245,240,.7); opacity: 0; transform: translateX(-20px); transition: opacity .5s ease, transform .5s ease, color .3s; }
-.services-list li.visible { opacity: 1; transform: translateX(0); }
-.services-list li:hover { color: var(--accent); }
-.services-list li::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); flex-shrink: 0; transition: width .3s ease; }
-.services-list li:hover::before { width: 30px; }
-
-/* Form */
-.booking-form { display: flex; flex-direction: column; gap: 1.2rem; }
-.form-group { display: flex; flex-direction: column; gap: .5rem; }
-.form-group label { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spacing: .25em; text-transform: uppercase; color: var(--text-muted); transition: color .3s; }
-.form-group:focus-within label { color: var(--accent); }
-.form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,.04); border: 1px solid rgba(245,245,240,.1); color: var(--white); padding: .85rem 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; outline: none; transition: border-color .3s, background .3s; -webkit-appearance: none; }
-.form-group select option { background: var(--grey); }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); background: rgba(126,207,224,.02); }
-.form-group textarea { resize: vertical; min-height: 100px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-/* ── DOWNLOAD SECTION ── */
-.download-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-.download-card {
-  background: var(--grey);
-  border: 1px solid rgba(168,168,160,.1);
-  overflow: hidden;
-  transition: border-color .4s ease, transform .4s ease;
-}
-.download-card:hover { border-color: rgba(168,168,160,.35); transform: translateY(-4px); }
-.download-card-img {
-  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
-  filter: brightness(.9);
-  transition: filter .5s ease, transform .6s cubic-bezier(0.16,1,0.3,1);
-}
-.download-card:hover .download-card-img { filter: brightness(1); transform: scale(1.04); }
-.download-card-body { padding: 1.2rem; }
-.download-card-title {
-  font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem;
-  letter-spacing: .05em; color: var(--white); margin-bottom: .25rem;
-}
-.download-card-sub {
-  font-family: 'Space Mono', monospace; font-size: .55rem;
-  letter-spacing: .15em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 1rem;
-}
-.download-card-actions { display: flex; gap: .6rem; }
-.btn-download {
-  flex: 1; text-align: center; padding: .65rem .5rem;
-  font-family: 'Space Mono', monospace; font-size: .55rem;
-  letter-spacing: .12em; text-transform: uppercase;
-  text-decoration: none; border: 1px solid; transition: all .3s ease;
-  display: inline-block;
-}
-.btn-download-free {
-  background: transparent; color: var(--white);
-  border-color: rgba(168,168,160,.3);
-}
-.btn-download-free:hover { background: rgba(168,168,160,.1); border-color: var(--accent); }
-.btn-download-hd {
-  background: var(--accent); color: var(--black);
-  border-color: var(--accent);
-}
-.btn-download-hd:hover { background: transparent; color: var(--accent); }
-.download-badge {
-  display: inline-block; font-family: 'Space Mono', monospace;
-  font-size: .5rem; letter-spacing: .1em; text-transform: uppercase;
-  background: rgba(168,168,160,.1); color: var(--accent);
-  padding: .2rem .5rem; margin-bottom: .8rem;
-}
-
-@media (max-width: 768px) {
-  .download-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .download-card-actions { flex-direction: column; }
-}
-.btn-submit::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: rgba(5,5,5,.3); transition: width 2s ease; }
-.btn-submit.loading::after { width: 100%; }
-
-/* Contacts */
-.contact-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
-.contact-link { display: flex; flex-direction: column; align-items: center; gap: .75rem; text-decoration: none; padding: 2rem 2.5rem; border: 1px solid rgba(245,245,240,.1); transition: all .4s cubic-bezier(0.16, 1, 0.3, 1); min-width: 180px; position: relative; overflow: hidden; }
-.contact-link::before { content: ''; position: absolute; inset: 0; background: rgba(126,207,224,.04); transform: scaleY(0); transform-origin: bottom; transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1); }
-.contact-link:hover { border-color: var(--accent); }
-.contact-link:hover::before { transform: scaleY(1); }
-.contact-link-icon { font-size: 1.8rem; transition: transform .4s ease; }
-.contact-link:hover .contact-link-icon { transform: scale(1.2); }
-.contact-link-label { font-family: 'Space Mono', monospace; font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); }
-.contact-link-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--white); }
-
-/* Footer */
-footer { border-top: 1px solid rgba(126,207,224,.06); padding: 3rem 3rem calc(8rem + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; justify-content: space-between; }
-footer img { height: 80px; opacity: .6; transition: opacity .3s; }
-footer img:hover { opacity: 1; }
-footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spacing: .2em; color: var(--text-muted); }
-
-/* Mobile */
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .hero-corner { display: none; }
-  .section-wrap { padding: 4rem 1.5rem; }
-  .gallery-full { padding: 4rem 1.5rem; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-item:nth-child(1) { grid-column: span 2; }
-  .gallery-item:nth-child(2), .gallery-item:nth-child(3) { grid-column: span 1; }
-  .gallery-item:nth-child(4), .gallery-item:nth-child(5), .gallery-item:nth-child(6) { grid-column: span 2; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .booking-box { padding: 2rem 1.5rem; }
-  .booking-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .form-row { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 1rem; text-align: center; padding-bottom: calc(9rem + env(safe-area-inset-bottom, 0px)); }
-}
-</style>
+</script>
 </head>
 <body>
-<canvas id="particles"></canvas>
+<canvas id="particles" aria-hidden="true"></canvas>
 <div class="nav-overlay" id="navOverlay"></div>
-<div class="nav-dropdown" id="navDropdown">
+<div class="nav-dropdown" id="navDropdown" role="navigation" aria-label="Menu principale">
   <a href="/">Home</a>
   <a href="/galleria.html">Galleria</a>
   <a href="/chi-sono.html">Chi sono</a>
@@ -356,22 +36,25 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
   <a href="/prenota.html">Prenota</a>
   <a href="/contatti.html">Contatti</a>
   <div class="nav-sub">
-    <a href="https://www.instagram.com/bi.elle_shot" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
-    <a href="mailto:bielleshot@gmail.com">Email</a>
+    <a href="https://www.instagram.com/bi.elle_shot" target="_blank" rel="noopener noreferrer" aria-label="Instagram di Bi.elle Shot">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+    <a href="mailto:bielleshot@gmail.com" aria-label="Invia email a Bi.elle Shot">Email</a>
   </div>
 </div>
-<nav>
-  <a class="nav-logo" href="/"><img src="IMG_2298.png" alt="Bi.elle Shot"/></a>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+<nav aria-label="Barra di navigazione">
+  <a class="nav-logo" href="/"><img src="IMG_2298.png" alt="Bi.elle Shot — torna alla home"/></a>
+  <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false" aria-controls="navDropdown">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-
 <section class="hero" id="home">
-  <div class="hero-bg"></div><div class="hero-line"></div>
-  <div class="hero-corner tl"></div><div class="hero-corner tr"></div>
-  <div class="hero-corner bl"></div><div class="hero-corner br"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-line" aria-hidden="true"></div>
+  <div class="hero-corner tl" aria-hidden="true"></div>
+  <div class="hero-corner tr" aria-hidden="true"></div>
+  <div class="hero-corner bl" aria-hidden="true"></div>
+  <div class="hero-corner br" aria-hidden="true"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Automotive Photography</p>
     <img class="hero-logo" src="IMG_2298.png" alt="Bi.elle Shot"/>
@@ -380,31 +63,54 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
       <a href="/galleria.html" class="btn btn-primary">Vedi il Portfolio</a>
       <a href="/prenota.html" class="btn btn-secondary">Prenota uno Shooting</a>
     </div>
-    <div class="scroll-hint"><span>Scorri</span><div class="scroll-line"></div></div>
+    <div class="scroll-hint" aria-hidden="true"><span>Scorri</span><div class="scroll-line"></div></div>
   </div>
-
 </section>
-<div class="divider"></div>
+
+<div class="divider" aria-hidden="true"></div>
+
 <div class="section-wrap" id="about">
   <div class="about-grid">
     <div class="about-visual reveal-left">
-      <div class="about-frame"><img src="408.jpeg" alt="Peugeot 408 — Bi.elle Shot" style="width:100%;height:100%;object-fit:cover;filter:none;"/></div>
-      <div class="about-accent"></div><div class="about-accent-br"></div>
+      <div class="about-frame">
+        <img src="408.jpeg" alt="Peugeot 408 — scatto Bi.elle Shot" style="width:100%;height:100%;object-fit:cover;filter:none;"/>
+      </div>
+      <div class="about-accent" aria-hidden="true"></div>
+      <div class="about-accent-br" aria-hidden="true"></div>
     </div>
     <div class="about-text reveal-right">
       <p class="section-label">Chi sono</p>
       <h2 class="section-title">Dietro<br>l'Obiettivo</h2>
       <p>Sono il fotografo dietro Bi.elle Shot — una passione per le auto trasformata in arte visiva. Ogni shooting è un racconto: la luce che accarezza la carrozzeria, il dettaglio che racconta l'anima di una macchina.</p>
       <p>Dal dettaglio artigianale all'adrenalina in pista, catturo l'essenza di ogni vettura con un occhio unico e uno stile inconfondibile.</p>
-      <div class="about-stats">
-        <div><div class="stat-value" data-target="100">0</div><div class="stat-label">Shooting completati</div></div>
-        <div><div class="stat-value" data-target="50">0</div><div class="stat-label">Auto fotografate</div></div>
-        <div><div class="stat-value">∞</div><div class="stat-label">Passione per i motori</div></div>
+      <div class="about-stats" role="list">
+        <div role="listitem"><div class="stat-value" data-target="100" aria-label="100+ shooting completati">0</div><div class="stat-label">Shooting completati</div></div>
+        <div role="listitem"><div class="stat-value" data-target="50" aria-label="50+ auto fotografate">0</div><div class="stat-label">Auto fotografate</div></div>
+        <div role="listitem"><div class="stat-value" aria-label="Passione infinita per i motori">∞</div><div class="stat-label">Passione per i motori</div></div>
       </div>
     </div>
   </div>
 </div>
-<div class="divider"></div>
+
+<div class="divider" aria-hidden="true"></div>
+
+<div class="gallery-full" id="gallery" aria-label="Anteprima portfolio">
+  <div class="section-wrap" style="padding-bottom:2rem;">
+    <p class="section-label reveal">Portfolio</p>
+    <h2 class="section-title reveal delay-1">Gli Scatti</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item delay-1"><img src="IMG_2300.jpeg" alt="Peugeot 408 — shooting esterno" loading="lazy"/><div class="gallery-overlay" aria-hidden="true"><span class="gallery-caption">Peugeot 408 — Exterior Shot</span></div></div>
+    <div class="gallery-item delay-2"><img src="IMG_2299.jpeg" alt="Honda Civic Type R — shooting notturno" loading="lazy"/><div class="gallery-overlay" aria-hidden="true"><span class="gallery-caption">Honda Civic Type R — Night Shot</span></div></div>
+    <div class="gallery-item delay-3"><img src="IMG_2297.jpeg" alt="McLaren 600LT — supercar shot" loading="lazy"/><div class="gallery-overlay" aria-hidden="true"><span class="gallery-caption">McLaren 600LT — Supercar Shot</span></div></div>
+    <div class="gallery-item delay-4"><img src="IMG_2303.jpeg" alt="OZ Racing — dettaglio cerchi" loading="lazy"/><div class="gallery-overlay" aria-hidden="true"><span class="gallery-caption">OZ Racing — Detail Shot</span></div></div>
+    <div class="gallery-item delay-5"><img src="IMG_2301.jpeg" alt="Hyundai N — interno abitacolo" loading="lazy"/><div class="gallery-overlay" aria-hidden="true"><span class="gallery-caption">Hyundai N — Interior Shot</span></div></div>
+    <div class="gallery-item delay-6"><img src="IMG_2302.jpeg" alt="Honda Civic Type R — shooting outdoor" loading="lazy"/><div class="gallery-overlay" aria-hidden="true"><span class="gallery-caption">Honda Civic Type R — Outdoor Shot</span></div></div>
+  </div>
+</div>
+
+<div class="divider" aria-hidden="true"></div>
+
 <div style="padding:6rem 3rem;" id="booking">
   <div class="booking-box">
     <div class="booking-grid">
@@ -412,7 +118,7 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
         <p class="section-label reveal">Prenota</p>
         <h2 class="section-title reveal delay-1">Il tuo<br>Shooting</h2>
         <p class="reveal delay-2">Vuoi immortalare la tua auto? Contattami per organizzare uno shooting su misura.</p>
-        <ul class="services-list">
+        <ul class="services-list" aria-label="Servizi disponibili">
           <li>Shooting esterno — location a scelta</li>
           <li>Shooting urbano / industriale</li>
           <li>Shooting al tramonto / golden hour</li>
@@ -422,92 +128,78 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
         </ul>
       </div>
       <div class="reveal-right">
-        <form class="booking-form" id="bookingForm" name="prenotazioni">
+        <form class="booking-form" id="bookingForm" name="prenotazioni" novalidate>
           <input type="hidden" name="access_key" value="13c7ab12-d78b-41a9-9a1f-ced97964ff9c"/>
           <input type="hidden" name="subject" value="Nuova richiesta shooting — Bi.elle Shot"/>
-          
-          
-          
           <div class="form-row">
-            <div class="form-group"><label>Nome</label><input type="text" name="nome" placeholder="Il tuo nome" required/></div>
-            <div class="form-group"><label>Cognome</label><input type="text" name="cognome" placeholder="Il tuo cognome"/></div>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required autocomplete="given-name"/>
+            </div>
+            <div class="form-group">
+              <label for="cognome">Cognome</label>
+              <input type="text" id="cognome" name="cognome" placeholder="Il tuo cognome" autocomplete="family-name"/>
+            </div>
           </div>
-          <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="tu@email.com" required/></div>
-          <div class="form-group"><label>Telefono</label><input type="tel" name="telefono" placeholder="+39 000 000 0000"/></div>
-          <div class="form-group"><label>Auto</label><input type="text" name="auto" placeholder="Es. BMW M3 Competition"/></div>
-          <div class="form-group"><label>Tipo di shooting</label>
-            <select name="tipo_shooting">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+39 000 000 0000" autocomplete="tel"/>
+          </div>
+          <div class="form-group">
+            <label for="auto">Auto</label>
+            <input type="text" id="auto" name="auto" placeholder="Es. BMW M3 Competition"/>
+          </div>
+          <div class="form-group">
+            <label for="tipo_shooting">Tipo di shooting</label>
+            <select id="tipo_shooting" name="tipo_shooting">
               <option value="">Seleziona...</option>
-              <option>Shooting esterno</option><option>Shooting urbano</option>
-              <option>Shooting golden hour</option><option>Shooting notturno</option>
+              <option>Shooting esterno</option>
+              <option>Shooting urbano</option>
+              <option>Shooting golden hour</option>
+              <option>Shooting notturno</option>
               <option>Da definire insieme</option>
             </select>
           </div>
-          <div class="form-group"><label>Note aggiuntive</label><textarea name="note" placeholder="Location preferita, data, richieste particolari..."></textarea></div>
+          <div class="form-group">
+            <label for="note">Note aggiuntive</label>
+            <textarea id="note" name="note" placeholder="Location preferita, data, richieste particolari..."></textarea>
+          </div>
           <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;border:none;margin-top:.5rem;">Invia Richiesta</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-<div class="divider"></div>
+
+<div class="divider" aria-hidden="true"></div>
+
 <div class="section-wrap" id="contact" style="text-align:center;">
   <p class="section-label reveal">Contatti</p>
   <h2 class="section-title reveal delay-1">Trovami</h2>
   <div class="contact-links">
-    <a href="https://www.instagram.com/bi.elle_shot" target="_blank" class="contact-link reveal delay-2">
-      <span class="contact-link-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span><span class="contact-link-label">Instagram</span><span class="contact-link-value">@Bi.elle_shot</span>
+    <a href="https://www.instagram.com/bi.elle_shot" target="_blank" rel="noopener noreferrer" class="contact-link reveal delay-2">
+      <span class="contact-link-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+      <span class="contact-link-label">Instagram</span>
+      <span class="contact-link-value">@Bi.elle_shot</span>
     </a>
     <a href="mailto:bielleshot@gmail.com" class="contact-link reveal delay-3">
-      <span class="contact-link-icon">✉️</span><span class="contact-link-label">Email</span><span class="contact-link-value">bielleshot@gmail.com</span>
+      <span class="contact-link-icon" aria-hidden="true">✉️</span>
+      <span class="contact-link-label">Email</span>
+      <span class="contact-link-value">bielleshot@gmail.com</span>
     </a>
   </div>
 </div>
 
-<footer><img src="IMG_2298.png" alt="Bi.elle Shot"/><p>© 2026 Bi.elle Shot — Tutti i diritti riservati</p><p>Automotive Photography</p></footer>
-<script>
-const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");let W,H;
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;draw();}
-function draw(){ctx.fillStyle="#000000";ctx.fillRect(0,0,W,H);for(let i=0;i<W*H*0.1;i++){const x=Math.random()*W,y=Math.random()*H,b=Math.random()*8+4;ctx.fillStyle=`rgba(${b},${b+4},${b+8},${Math.random()*0.03+0.005})`;ctx.fillRect(x,y,Math.random()*1.2+0.2,Math.random()*1.2+0.2);}for(let i=0;i<8;i++){const x=Math.random()*W,y=Math.random()*H,r=Math.random()*180+60,g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,`rgba(126,207,224,${Math.random()*0.012+0.002})`);g.addColorStop(1,"rgba(126,207,224,0)");ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();}const v=ctx.createRadialGradient(W/2,H/2,H*0.1,W/2,H/2,H*0.9);v.addColorStop(0,"rgba(0,0,0,0)");v.addColorStop(1,"rgba(0,0,0,0.7)");ctx.fillStyle=v;ctx.fillRect(0,0,W,H);}
-resize();window.addEventListener("resize",resize);
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible");});},{threshold:0.15});
-document.querySelectorAll(".reveal,.reveal-left,.reveal-right").forEach(el=>obs.observe(el));
-const gObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("visible");gObs.unobserve(x.target);}});},{threshold:0.12});
-document.querySelectorAll(".gallery-item").forEach(el=>gObs.observe(el));
-const sObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.querySelectorAll("li").forEach((li,i)=>setTimeout(()=>li.classList.add("visible"),i*120));});},{threshold:0.2});
-document.querySelectorAll(".services-list").forEach(el=>sObs.observe(el));
-const cObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll("[data-target]").forEach(el=>{const t=parseInt(el.dataset.target);let c=0,s=t/60,ti=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.floor(c)+"+";if(c>=t){el.textContent=t+"+";clearInterval(ti);}},24);});cObs.unobserve(x.target);}});},{threshold:0.5});
-document.querySelectorAll(".about-stats").forEach(el=>cObs.observe(el));
-</script>
-<script>
-const ham=document.getElementById('hamburger');
-const drop=document.getElementById('navDropdown');
-const ov=document.getElementById('navOverlay');
-function toggle(){ ham.classList.toggle('open'); drop.classList.toggle('open'); ov.classList.toggle('open'); document.body.style.overflow=drop.classList.contains('open')?'hidden':''; }
-ham.addEventListener('click',toggle);
-ov.addEventListener('click',toggle);
-drop.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{ if(drop.classList.contains("open")) toggle(); }));
-document.getElementById("bookingForm").addEventListener("submit",async function(e){
-  e.preventDefault();
-  const btn=document.getElementById("submitBtn");
-  btn.textContent="Invio in corso...";
-  btn.disabled=true;
-  const formData=new FormData(this);
-  const obj={};
-  formData.forEach((v,k)=>obj[k]=v);
-  obj.access_key="13c7ab12-d78b-41a9-9a1f-ced97964ff9c";
-  obj.subject="Nuova richiesta shooting — Bi.elle Shot";
-  try{
-    const res=await fetch("https://api.web3forms.com/submit",{
-      method:"POST",
-      headers:{"Content-Type":"application/json","Accept":"application/json"},
-      body:JSON.stringify(obj)
-    });
-    const json=await res.json();
-    if(json.success){ window.location.href="https://bielleshot.it/thanks.html"; }
-    else{ btn.textContent="Errore, riprova"; btn.disabled=false; console.error(json); }
-  }catch(err){ btn.textContent="Errore, riprova"; btn.disabled=false; console.error(err); }
-});
-</script>
+<footer>
+  <img src="IMG_2298.png" alt="Bi.elle Shot"/>
+  <p>© 2026 Bi.elle Shot — Tutti i diritti riservati</p>
+  <p>Automotive Photography</p>
+</footer>
 
-</body></html>
+<script src="main.js" defer></script>
+</body>
+</html>
