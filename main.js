@@ -105,6 +105,19 @@
   document.querySelectorAll('.about-stats').forEach(el => cObs.observe(el));
 })();
 
+/* ── Scroll hint: nasconde dopo il primo scroll ── */
+(function () {
+  const hint = document.querySelector('.scroll-hint');
+  if (!hint) return;
+  function hideHint() {
+    hint.style.transition = 'opacity .6s ease';
+    hint.style.opacity = '0';
+    setTimeout(() => hint.style.display = 'none', 600);
+    window.removeEventListener('scroll', hideHint);
+  }
+  window.addEventListener('scroll', hideHint, { passive: true });
+})();
+
 /* ── Booking form (Web3Forms — index.html only) ── */
 (function () {
   const form = document.getElementById('bookingForm');
