@@ -1,5 +1,5 @@
 /* =====================================================
-   Bi.elle Shot — Shared Scripts
+   Bi.elle Shot -- Shared Scripts & Stripe Integration
    ===================================================== */
 
 /* ── Canvas particle background ── */
@@ -105,7 +105,7 @@
   document.querySelectorAll('.about-stats').forEach(el => cObs.observe(el));
 })();
 
-/* ── Booking form (Web3Forms — index.html only) ── */
+/* ── Booking form (Web3Forms -- index.html only) ── */
 (function () {
   const form = document.getElementById('bookingForm');
   if (!form) return;
@@ -117,7 +117,7 @@
     const obj = {};
     new FormData(this).forEach((v, k) => obj[k] = v);
     obj.access_key = '13c7ab12-d78b-41a9-9a1f-ced97964ff9c';
-    obj.subject = 'Nuova richiesta shooting — Bi.elle Shot';
+    obj.subject = 'Nuova richiesta shooting -- Bi.elle Shot';
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -128,5 +128,37 @@
       if (json.success) { window.location.href = 'https://bielleshot.it/thanks.html'; }
       else { btn.textContent = 'Errore, riprova'; btn.disabled = false; }
     } catch { btn.textContent = 'Errore, riprova'; btn.disabled = false; }
+  });
+})();
+(function () {
+  const stripe = Stripe('pk_live_51Su3BOKBVagNd31Wkphwi4DjgIAzlEdkLqrcnEfCymgDpjHugt7Q6I07q7vu4E6ZICDdbEuYu6sKcVk2Bb2KOe9j00CGQnWwgO'); 
+
+  const buyButtons = document.querySelectorAll('.buy-button');
+  
+  buyButtons.forEach(button => {
+    button.addEventListener('click', async function () {
+      const priceId = this.getAttribute('data-price-id');
+      
+      if (!priceId || priceId.includes('YOUR_PRICE_ID')) {
+        alert('Configurazione pagamento incompleta (Price ID mancante).');
+        return;
+      }
+      
+      try {
+        const { error } = await stripe.redirectToCheckout({
+          lineItems: [{ price: priceId, quantity: 1 }],
+          mode: 'payment',
+          successUrl: 'https://bielleshot.it/thanks.html',
+          cancelUrl: 'https://bielleshot.it/servizi.html',
+        });
+        
+        if (error) {
+          console.error("Errore Stripe:", error.message);
+          alert("Errore con il pagamento: " + error.message);
+        }
+      } catch (err) {
+        console.error("Errore di rete:", err);
+      }
+    });
   });
 })();
