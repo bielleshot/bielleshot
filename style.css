@@ -214,9 +214,6 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
 .gallery-label-model { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .08em; color: var(--white); line-height: 1.1; }
 .gallery-label-type { font-family: 'Space Mono', monospace; font-size: .45rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
 
-/* ── Gallery aspect ratio ── */
-.gallery-item { aspect-ratio: 4/3; }
-.gallery-item:nth-child(1) { aspect-ratio: 16/9; }
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
@@ -234,8 +231,6 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
   .scroll-hint { margin-top: 1.2rem; }
   .hero-corner { display: none; }
 
-  /* Galleria: aspect ratio uniforme su mobile */
-  .gallery-item, .gallery-item:nth-child(1) { aspect-ratio: 3/2; }
 
   .section-wrap { padding: 4rem 1.5rem; }
   .gallery-full { padding: 4rem 1.5rem; }
