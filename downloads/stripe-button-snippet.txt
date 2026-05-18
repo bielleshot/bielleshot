@@ -1,0 +1,17 @@
+SOSTITUISCI QUESTO:
+
+<a href="https://py.pl/pkTI6LjTTCe0ZMPd1zOLUw"
+target="_blank"
+rel="noopener noreferrer"
+class="btn-download btn-download-hd">
+HD — 10€
+</a>
+
+CON QUESTO:
+
+<a href="https://buy.stripe.com/dRm4gAehycPqaVz83m2VG01"
+target="_blank"
+rel="noopener noreferrer"
+class="btn-download btn-download-hd">
+HD SENZA WATERMARK • 10€
+</a>
