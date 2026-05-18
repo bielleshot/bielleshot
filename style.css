@@ -212,6 +212,13 @@ footer p { font-family: 'Space Mono', monospace; font-size: .55rem; letter-spaci
 /* ── Mobile ── */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
+  .nav-logo img { height: 80px; }
+  .hero { padding: 5rem 1.5rem 2rem; min-height: 100svh; justify-content: flex-start; padding-top: max(5rem, env(safe-area-inset-top, 5rem)); }
+  .hero-eyebrow { margin-top: 1rem; margin-bottom: 1rem; }
+  .hero-logo { width: min(220px, 55vw); }
+  .hero-tagline { margin-top: 1rem; font-size: 1rem; }
+  .hero-cta { margin-top: 1.5rem; }
+  .scroll-hint { margin-top: 1.5rem; }
   .hero-corner { display: none; }
   .section-wrap { padding: 4rem 1.5rem; }
   .gallery-full { padding: 4rem 1.5rem; }
