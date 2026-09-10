@@ -8,7 +8,7 @@
 
 <!-- Open Graph / Social -->
 <meta property="og:title" content="Contatti — Bielle Shot">
-<meta property="og:description" content="Prenota uno shooting automotive o ritratto a Parma.">
+<meta property="og:description" content="Prenota uno shooting automotive o ritretto a Parma.">
 <meta property="og:image" content="408.jpeg">
 
 <link rel="stylesheet" href="style.css">
@@ -31,10 +31,7 @@
   <div class="wrap">
     <h1 class="contact__title">Raccontami la tua idea di shooting.</h1>
 
-    <form action="https://formspree.io/f/xjglnnkn" method="POST">
-      <!-- Reindirizzamento automatico alla pagina grazie.html -->
-      <input type="hidden" name="_next" value="grazie.html">
-      
+    <form id="contactForm" action="https://formspree.io/f/xjglnnkn" method="POST">
       <div class="field">
         <label for="name">Nome</label>
         <input type="text" id="name" name="name" required>
@@ -45,16 +42,19 @@
       </div>
       <div class="field">
         <label for="type">Tipo di shooting</label>
-        <input type="text" id="type" name="type" placeholder="Auto, ritratto, altro...">
+        <input type="text" id="type" name="type" placeholder="Auto, ritretto, altro...">
       </div>
       <div class="field">
         <label for="message">Messaggio</label>
         <textarea id="message" name="message" required></textarea>
       </div>
-      <button type="submit">Invia richiesta</button>
+      <button type="submit" id="submitBtn">Invia richiesta</button>
     </form>
 
-    <a href="index.html" class="back-link">← Torna al sito</a>
+    <!-- Messaggio di esito invio -->
+    <div id="formStatus" style="display: none; margin-top: 20px; font-weight: 500;"></div>
+
+    <a href="index.html" class="back-link" style="margin-top: 32px; display: inline-block;">← Torna al sito</a>
   </div>
 </main>
 
