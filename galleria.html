@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galleria — Bielle Shot</title>
+<meta name="description" content="Galleria Bielle Shot — album Auto, Ritratti, Paesaggi, Mix.">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__mark">Bielle Shot</a>
+  <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav__menu" id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="galleria.html">Galleria</a>
+    <a href="contatti.html">Contatti</a>
+  </div>
+</nav>
+
+<header class="gallery-head">
+  <div class="wrap">
+    <h1 class="gallery-head__title">Galleria</h1>
+    <p class="gallery-head__sub">Quattro album, quattro modi di guardare le cose.</p>
+  </div>
+</header>
+
+<!-- ===================== ANTEPRIME ALBUM ===================== -->
+<section class="section" style="border-top:none;">
+  <div class="wrap">
+    <div class="grid grid--albums">
+      <a class="album-card" href="auto.html">
+        <div class="ph"><span class="ph__label">AUTO_01</span></div>
+        <span class="album-card__name">Auto</span>
+      </a>
+      <a class="album-card" href="ritratti.html">
+        <div class="ph"><span class="ph__label">RITRATTO_01</span></div>
+        <span class="album-card__name">Ritratti</span>
+      </a>
+      <a class="album-card" href="paesaggi.html">
+        <div class="ph"><span class="ph__label">PAESAGGIO_01</span></div>
+        <span class="album-card__name">Paesaggi</span>
+      </a>
+      <a class="album-card" href="mix.html">
+        <div class="ph"><span class="ph__label">MIX_01</span></div>
+        <span class="album-card__name">Mix</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__row">
+      <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
+      <a href="contatti.html" class="footer__cta">Scrivimi →</a>
+    </div>
+    <div class="footer__meta">
+      <span>© <span id="year"></span> Bielle Shot</span>
+      <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
