@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bielle Shot — Fotografia auto &amp; ritratti</title>
+<meta name="description" content="Bielle Shot — fotografia automotive e ritrattistica.">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#top" class="nav__mark">Bielle Shot</a>
+  <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav__menu" id="navMenu">
+    <a href="#top">Home</a>
+    <a href="galleria.html">Galleria</a>
+    <a href="contatti.html">Contatti</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <div class="wrap" style="display:grid; grid-template-columns:inherit; gap:inherit; grid-column:1/-1;">
+    <div class="hero__text">
+      <p class="hero__eyebrow">Fotografia — Verona e dintorni</p>
+      <h1 class="hero__title">Auto e <em>ritratti</em>,<br>raccontati con luce vera.</h1>
+      <p class="hero__sub">Shooting automotive e sessioni ritratto. Ogni scatto è pensato sul soggetto, non su un filtro.</p>
+    </div>
+
+    <!--
+      PLACEHOLDER FOTO HERO
+      Sostituisci il div .ph con: <img src="tuafoto.jpg" alt="descrizione">
+      e rimuovi la classe "ph" + il tag figcaption interno.
+    -->
+    <figure class="hero__figure">
+      <div class="ph">
+        <span class="ph__label">HERO — sostituisci con foto reale</span>
+      </div>
+    </figure>
+  </div>
+</header>
+
+<!-- ===================== FOOTER / CONTATTO ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__row">
+      <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
+      <a href="contatti.html" class="footer__cta">Scrivimi →</a>
+    </div>
+    <div class="footer__meta">
+      <span>© <span id="year"></span> Bielle Shot</span>
+      <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
