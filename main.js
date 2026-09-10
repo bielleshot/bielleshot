@@ -1,40 +1,59 @@
-// bi.elle_shot — main.js
-// Tenuto volontariamente minimo: niente librerie, niente animazioni su ogni scroll.
+// Anno dinamico nel footer
+const yearEl = document.getElementById('year');
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+// Menu Mobile Toggle
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
 
-  // Menu a tendina minimal
-  const toggle = document.getElementById('navToggle');
-  const menu = document.getElementById('navMenu');
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-    // Chiudi il menu quando si sceglie una voce
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    navMenu.classList.toggle('is-open');
+  });
+}
+
+// Gestione invio modulo contatti senza ricaricare la pagina
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const status = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+    const formData = new FormData(contactForm);
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Invio in corso...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
-    });
-  }
 
-  // Un solo reveal orchestrato all'apertura della pagina (solo hero),
-  // rispetta prefers-reduced-motion.
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hero = document.querySelector('.hero');
-  if (hero && !prefersReduced) {
-    hero.style.opacity = '0';
-    hero.style.transform = 'translateY(12px)';
-    hero.style.transition = 'opacity .6s ease, transform .6s ease';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        hero.style.opacity = '1';
-        hero.style.transform = 'translateY(0)';
-      });
-    });
-  }
-});
+      if (response.ok) {
+        status.style.display = 'block';
+        status.style.color = '#4CAF50';
+        status.textContent = 'Grazie! Il tuo messaggio è stato inviato con successo.';
+        contactForm.reset();
+        submitBtn.style.display = 'none';
+      } else {
+        throw new Error('Errore durante l’invio');
+      }
+    } catch (error) {
+      status.style.display = 'block';
+      status.style.color = '#e53935';
+      status.textContent = 'Si è verificato un errore. Per favore riprova o scrivimi su Instagram.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Invia richiesta';
+    }
+  });
+}
