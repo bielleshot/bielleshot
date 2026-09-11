@@ -21,25 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animazione Effetto Scatto Flash
+  // Sequenza Scatto Fotografico
   const shutter = document.getElementById('cameraShutter');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (shutter && !prefersReduced) {
     document.body.style.overflow = 'hidden';
 
+    // 1. Schermata completamente nera all'inizio
     setTimeout(() => {
-      shutter.classList.add('flash-active');
+      // 2. Flash rapido (apertura otturatore)
+      shutter.classList.add('flash-on');
       
       setTimeout(() => {
-        shutter.classList.add('shutter-open');
-        document.body.style.overflow = '';
+        // 3. Ritorno immediato al buio
+        shutter.classList.remove('flash-on');
         
         setTimeout(() => {
-          shutter.remove();
-        }, 800);
-      }, 150);
-    }, 200);
+          // 4. Apertura finale e svelamento del sito
+          shutter.classList.add('shutter-open');
+          document.body.style.overflow = '';
+          
+          setTimeout(() => {
+            shutter.remove();
+          }, 600);
+        }, 100);
+      }, 80);
+    }, 400);
   } else if (shutter) {
     shutter.remove();
   }
