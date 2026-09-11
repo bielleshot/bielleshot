@@ -1,59 +1,46 @@
-// Anno dinamico nel footer
-const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+// bi.elle_shot — main.js
 
-// Menu Mobile Toggle
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
+document.addEventListener('DOMContentLoaded', () => {
+  // Anno dinamico nel footer
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
-    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', !isExpanded);
-    navMenu.classList.toggle('is-open');
-  });
-}
-
-// Gestione invio modulo contatti senza ricaricare la pagina
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-  contactForm.addEventListener('submit', async function(event) {
-    event.preventDefault();
-    
-    const status = document.getElementById('formStatus');
-    const submitBtn = document.getElementById('submitBtn');
-    const formData = new FormData(contactForm);
-    
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Invio in corso...';
-
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+  // Menu mobile
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('navMenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
+    });
+  }
 
-      if (response.ok) {
-        status.style.display = 'block';
-        status.style.color = '#4CAF50';
-        status.textContent = 'Grazie! Il tuo messaggio è stato inviato con successo.';
-        contactForm.reset();
-        submitBtn.style.display = 'none';
-      } else {
-        throw new Error('Errore durante l’invio');
-      }
-    } catch (error) {
-      status.style.display = 'block';
-      status.style.color = '#e53935';
-      status.textContent = 'Si è verificato un errore. Per favore riprova o scrivimi su Instagram.';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Invia richiesta';
-    }
-  });
-}
+  // Animazione Effetto Scatto Flash
+  const shutter = document.getElementById('cameraShutter');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (shutter && !prefersReduced) {
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+      shutter.classList.add('flash-active');
+      
+      setTimeout(() => {
+        shutter.classList.add('shutter-open');
+        document.body.style.overflow = '';
+        
+        setTimeout(() => {
+          shutter.remove();
+        }, 800);
+      }, 150);
+    }, 200);
+  } else if (shutter) {
+    shutter.remove();
+  }
+});
