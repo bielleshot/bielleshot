@@ -1,4 +1,4 @@
-// bi.elle_shot — main.js
+// bi.elle_shot — main.js (Autofocus Intro)
 
 document.addEventListener('DOMContentLoaded', () => {
   // Anno dinamico nel footer
@@ -21,34 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animazione Flash + Fotocamera Zoom-Out + Benvenuti (Senza Audio)
-  const shutter = document.getElementById('cameraShutter');
+  // Animazione Autofocus
+  const afOverlay = document.getElementById('autofocusOverlay');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (shutter && !prefersReduced) {
+  if (afOverlay && !prefersReduced) {
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('is-blurred');
 
     setTimeout(() => {
-      shutter.classList.add('flash-on');
-      
+      afOverlay.classList.add('af-active');
+
       setTimeout(() => {
-        shutter.classList.remove('flash-on');
-        
+        afOverlay.classList.add('af-locked');
+        document.body.classList.remove('is-blurred');
+
         setTimeout(() => {
-          shutter.classList.add('show-intro');
+          afOverlay.classList.add('af-fade');
+          document.body.style.overflow = '';
 
           setTimeout(() => {
-            shutter.classList.add('shutter-open');
-            document.body.style.overflow = '';
-            
-            setTimeout(() => {
-              shutter.remove();
-            }, 800);
-          }, 1400);
-        }, 100);
-      }, 90);
-    }, 300);
-  } else if (shutter) {
-    shutter.remove();
+            afOverlay.remove();
+          }, 600);
+        }, 500);
+      }, 700);
+    }, 200);
+  } else if (afOverlay) {
+    afOverlay.remove();
   }
 });
