@@ -55,20 +55,17 @@ body.is-blurred {
   transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---------- Overlay Mirino Autofocus (Centrato Perfettamente) ---------- */
+/* ---------- Overlay Mirino Autofocus (Centrato e Stabile) ---------- */
 .af-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   z-index: 99999;
   background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .af-reticle {
