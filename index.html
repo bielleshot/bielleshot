@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<!-- Overlay Mirino Autofocus con Logo e Testo -->
+<!-- Overlay Mirino Autofocus (Indipendente e perfettamente centrato) -->
 <div id="autofocusOverlay" class="af-overlay">
   <div class="af-reticle">
     <div class="af-corner tl"></div>
@@ -18,7 +18,6 @@
     <div class="af-corner bl"></div>
     <div class="af-corner br"></div>
     
-    <!-- Logo corretto dal tuo repository -->
     <div class="af-logo-box">
       <img src="IMG_2298.png" alt="Bielle Shot Logo">
     </div>
@@ -27,52 +26,55 @@
   </div>
 </div>
 
-<nav class="nav">
-  <a href="#top" class="nav__mark">Bielle Shot</a>
-  <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav__menu" id="navMenu">
-    <a href="#top">Home</a>
-    <a href="galleria.html">Galleria</a>
-    <a href="contatti.html">Contatti</a>
-  </div>
-</nav>
-
-<!-- ===================== HERO ===================== -->
-<header class="hero" id="top">
-  <div class="wrap" style="display:grid; grid-template-columns:inherit; gap:inherit; grid-column:1/-1;">
-    <div class="hero__text">
-      <p class="hero__eyebrow">Studio Fotografico • Parma, Emilia Romagna</p>
-
-      <h1 class="hero__title">
-        Dal dettaglio <em>automotive</em> al ritratto personale.
-      </h1>
-
-      <p class="hero__sub">
-        Ogni dettaglio racconta una storia: che sia un oggetto o una posa, dipende tutto dal punto di vista.
-      </p>
+<!-- Contenitore della pagina che riceve la sfocatura iniziale -->
+<div class="page-container">
+  <nav class="nav">
+    <a href="#top" class="nav__mark">Bielle Shot</a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav__menu" id="navMenu">
+      <a href="#top">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
     </div>
+  </nav>
 
-    <figure class="hero__figure">
-      <img src="408.jpeg" alt="Fotografia Automotive Bielle Shot" style="width:100%; height:100%; object-fit:cover; display:block;">
-    </figure>
-  </div>
-</header>
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <div class="wrap" style="display:grid; grid-template-columns:inherit; gap:inherit; grid-column:1/-1;">
+      <div class="hero__text">
+        <p class="hero__eyebrow">Studio Fotografico • Parma, Emilia Romagna</p>
 
-<!-- ===================== FOOTER / CONTATTO ===================== -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__row">
-      <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
-      <a href="contatti.html" class="footer__cta">Scrivimi →</a>
+        <h1 class="hero__title">
+          Dal dettaglio <em>automotive</em> al ritratto personale.
+        </h1>
+
+        <p class="hero__sub">
+          Ogni dettaglio racconta una storia: che sia un oggetto o una posa, dipende tutto dal punto di vista.
+        </p>
+      </div>
+
+      <figure class="hero__figure">
+        <img src="408.jpeg" alt="Fotografia Automotive Bielle Shot" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </figure>
     </div>
-    <div class="footer__meta">
-      <span>© <span id="year"></span> Bielle Shot</span>
-      <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
+  </header>
+
+  <!-- ===================== FOOTER / CONTATTO ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__row">
+        <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
+        <a href="contatti.html" class="footer__cta">Scrivimi →</a>
+      </div>
+      <div class="footer__meta">
+        <span>© <span id="year"></span> Bielle Shot</span>
+        <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+</div>
 
 <script src="main.js"></script>
 </body>
