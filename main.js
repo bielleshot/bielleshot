@@ -1,4 +1,4 @@
-// bi.elle_shot — main.js (Autofocus Intro Sincronizzata)
+// bi.elle_shot — main.js (Autofocus Intro Corretta)
 
 document.addEventListener('DOMContentLoaded', () => {
   // Anno dinamico nel footer
@@ -21,29 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animazione Autofocus + Logo Sincronizzata
+  // Animazione Autofocus + Logo
   const afOverlay = document.getElementById('autofocusOverlay');
+  const pageContainer = document.querySelector('.page-container');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (afOverlay && !prefersReduced) {
+  if (afOverlay && pageContainer && !prefersReduced) {
     document.body.style.overflow = 'hidden';
-    document.body.classList.add('is-blurred');
+    pageContainer.classList.add('is-blurred');
 
-    // 1. Avvia l'apparizione del mirino
     setTimeout(() => {
       afOverlay.classList.add('af-active');
 
-      // 2. Aggancia il fuoco (diventa verde)
       setTimeout(() => {
         afOverlay.classList.add('af-locked');
 
-        // 3. Insieme: dissolvi l'overlay nero E rimuovi la sfocatura dello sfondo
         setTimeout(() => {
           afOverlay.classList.add('af-fade');
-          document.body.classList.remove('is-blurred');
+          pageContainer.classList.remove('is-blurred');
           document.body.style.overflow = '';
 
-          // 4. Rimuovi l'elemento dal DOM alla fine della transizione
           setTimeout(() => {
             afOverlay.remove();
           }, 600);
