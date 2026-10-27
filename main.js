@@ -1,4 +1,4 @@
-// bi.elle_shot — main.js (Autofocus Intro Corretta)
+// bi.elle_shot — main.js (Autofocus Clean Fade)
 
 document.addEventListener('DOMContentLoaded', () => {
   // Anno dinamico nel footer
@@ -21,14 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animazione Autofocus + Logo
+  // Animazione Overlay Autofocus
   const afOverlay = document.getElementById('autofocusOverlay');
-  const pageContainer = document.querySelector('.page-container');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (afOverlay && pageContainer && !prefersReduced) {
+  if (afOverlay && !prefersReduced) {
     document.body.style.overflow = 'hidden';
-    pageContainer.classList.add('is-blurred');
 
     setTimeout(() => {
       afOverlay.classList.add('af-active');
@@ -38,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
           afOverlay.classList.add('af-fade');
-          pageContainer.classList.remove('is-blurred');
           document.body.style.overflow = '';
 
           setTimeout(() => {
