@@ -49,21 +49,19 @@ a { color: inherit; text-decoration: none; }
   padding-right: var(--gutter);
 }
 
-/* ---------- Effetto Sfocatura Iniziale (Partenza sfocata di default) ---------- */
+/* ---------- Contenitore Pagina per Sfocatura Controllata ---------- */
 .page-container {
   width: 100%;
   min-height: 100vh;
-  filter: blur(12px);
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-container.is-blurred {
+  filter: blur(8px);
   transform: scale(1.02);
-  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.page-container.is-focused {
-  filter: blur(0);
-  transform: scale(1);
-}
-
-/* ---------- Overlay Mirino Autofocus (Centrato e con Logo Ingrandito) ---------- */
+/* ---------- Overlay Mirino Autofocus (Fisso e Nitido al centro) ---------- */
 .af-overlay {
   position: fixed;
   top: 0;
@@ -81,9 +79,9 @@ a { color: inherit; text-decoration: none; }
 
 .af-reticle {
   position: relative;
-  width: 280px;
-  height: 280px;
-  transform: scale(1.3);
+  width: 240px;
+  height: 240px;
+  transform: scale(1.4);
   opacity: 0;
   display: flex;
   align-items: center;
@@ -99,8 +97,8 @@ a { color: inherit; text-decoration: none; }
 /* Angoli del mirino */
 .af-corner {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-color: rgba(255, 255, 255, 0.7);
   border-style: solid;
   transition: border-color 0.2s ease;
@@ -110,10 +108,10 @@ a { color: inherit; text-decoration: none; }
 .bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
 .br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
 
-/* Contenitore del logo al centro (Molto più grande) */
+/* Contenitore del logo al centro */
 .af-logo-box {
-  width: 220px;
-  height: 220px;
+  width: 170px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,7 +125,7 @@ a { color: inherit; text-decoration: none; }
 
 .af-status {
   position: absolute;
-  bottom: -40px;
+  bottom: -36px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-display);
@@ -399,7 +397,7 @@ a { color: inherit; text-decoration: none; }
   .section__note { text-align: left; }
 }
 
-/* ---------- Gallery grid ----------  */
+/* ---------- Gallery grid ---------- */
 
 .grid {
   display: grid;
@@ -529,4 +527,29 @@ form {
   border-color: var(--accent);
 }
 
-.field textarea { resize: vertical; min-height
+.field textarea { resize: vertical; min-height: 96px; }
+
+button[type="submit"] {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  padding: 14px 28px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+button[type="submit"]:hover { background: var(--accent); color: var(--text); }
+
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.back-link:hover { color: var(--text); }
