@@ -1,4 +1,4 @@
-// bi.elle_shot — main.js (Autofocus Intro Corretta)
+// bi.elle_shot — main.js (Autofocus & Focus-In Effect)
 
 document.addEventListener('DOMContentLoaded', () => {
   // Anno dinamico nel footer
@@ -21,24 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animazione Autofocus + Logo
+  // Animazione Autofocus + Rimozione Sfocatura Sincronizzata
   const afOverlay = document.getElementById('autofocusOverlay');
   const pageContainer = document.querySelector('.page-container');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (afOverlay && pageContainer && !prefersReduced) {
     document.body.style.overflow = 'hidden';
-    pageContainer.classList.add('is-blurred');
 
     setTimeout(() => {
       afOverlay.classList.add('af-active');
 
       setTimeout(() => {
-        afOverlay.classList.add('af-locked');
+        afOverlay.classList.add('af-locked'); // Diventa verde (AF Lock)
 
         setTimeout(() => {
-          afOverlay.classList.add('af-fade');
-          pageContainer.classList.remove('is-blurred');
+          afOverlay.classList.add('af-fade');       // Dissolve il mirino nero
+          pageContainer.classList.add('is-focused'); // Porta la pagina a fuoco nitido
           document.body.style.overflow = '';
 
           setTimeout(() => {
@@ -49,5 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   } else if (afOverlay) {
     afOverlay.remove();
+    if (pageContainer) pageContainer.classList.add('is-focused');
   }
 });
