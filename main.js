@@ -1,4 +1,4 @@
-// bi.elle_shot — main.js pulito
+// bi.elle_shot — main.js
 
 document.addEventListener('DOMContentLoaded', () => {
   // Anno dinamico nel footer
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             afOverlay.remove();
           }, 600);
-        }, 600);
+        }, 700);
       }, 700);
     }, 150);
   } else if (afOverlay) {
