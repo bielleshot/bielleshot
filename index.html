@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<!-- Overlay Mirino Autofocus (Indipendente e perfettamente centrato) -->
+<!-- Overlay Mirino Autofocus con Logo Ingrandito -->
 <div id="autofocusOverlay" class="af-overlay">
   <div class="af-reticle">
     <div class="af-corner tl"></div>
@@ -26,10 +26,14 @@
   </div>
 </div>
 
-<!-- Contenitore della pagina che riceve la sfocatura iniziale -->
+<!-- Contenitore della pagina (inizialmente sfocato) -->
 <div class="page-container">
   <nav class="nav">
-    <a href="#top" class="nav__mark">Bielle Shot</a>
+    <!-- Logo in alto a sinistra al posto della scritta -->
+    <a href="#top" class="nav__logo-link">
+      <img src="IMG_2298.png" alt="Bielle Shot" class="nav__logo-img">
+    </a>
+
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
       <span></span><span></span><span></span>
     </button>
