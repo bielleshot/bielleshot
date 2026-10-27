@@ -42,7 +42,7 @@ a { color: inherit; text-decoration: none; }
   padding-right: var(--gutter);
 }
 
-/* ---------- Overlay Mirino Autofocus (Solo Home) ---------- */
+/* ---------- Overlay Mirino Autofocus ---------- */
 .af-overlay {
   position: fixed;
   top: 0;
@@ -120,7 +120,7 @@ a { color: inherit; text-decoration: none; }
 .af-overlay.af-locked .af-status { color: #00ff66; }
 .af-overlay.af-fade { opacity: 0; pointer-events: none; }
 
-/* ---------- Barra di Navigazione & Logo ---------- */
+/* ---------- Barra di Navigazione & Logo Ingrandito ---------- */
 .nav {
   position: fixed;
   top: 0;
@@ -137,11 +137,11 @@ a { color: inherit; text-decoration: none; }
 .nav__logo-link {
   display: flex;
   align-items: center;
-  height: 44px;
+  height: 52px;
 }
 
 .nav__logo-img {
-  height: 40px;
+  height: 50px;
   width: auto;
   object-fit: contain;
 }
@@ -202,12 +202,12 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1.1fr 1fr;
   align-items: stretch;
   gap: var(--gutter);
-  padding-top: 120px;
+  padding-top: 100px;
   padding-bottom: 48px;
 }
 
 @media (max-width: 860px) {
-  .hero { grid-template-columns: 1fr; padding-top: 96px; }
+  .hero { grid-template-columns: 1fr; padding-top: 85px; }
 }
 
 .hero__text { display: flex; flex-direction: column; justify-content: center; }
@@ -217,17 +217,77 @@ a { color: inherit; text-decoration: none; }
 .hero__sub { margin-top: 28px; max-width: 40ch; color: var(--muted); font-size: 17px; }
 .hero__figure { position: relative; min-height: 320px; border: 1px solid var(--line); overflow: hidden; }
 
-/* Distacco corretto e sicuro per Galleria e Contatti */
-.gallery-head {
-  padding: 140px 0 40px !important;
+/* ---------- Placeholder media blocks (Necessario per le card) ---------- */
+.ph {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(135deg, rgba(242,240,236,0.035) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #1c1c1f, #0e0e10 70%);
+  display: flex;
+  align-items: flex-end;
+  min-height: 100%;
 }
 
+/* ---------- Griglia Album Galleria ---------- */
+.grid--albums {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+@media (max-width: 640px) {
+  .grid--albums { grid-template-columns: 1fr; }
+}
+
+.album-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.album-card .ph { min-height: 100%; }
+
+.album-card__name {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--text);
+  transition: color .15s ease;
+}
+
+.album-card:hover .album-card__name { color: var(--accent); }
+
+.gallery-head {
+  padding: 110px 0 24px !important;
+}
+
+.gallery-head__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: -0.01em;
+}
+
+.gallery-head__sub {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* ---------- Contatti ---------- */
 .contact {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 140px 0 80px !important;
+  padding: 110px 0 60px !important;
 }
 
 .contact__title {
@@ -281,7 +341,7 @@ button[type="submit"] {
 }
 button[type="submit"]:hover { background: var(--accent); color: var(--text); }
 
-.back-link { display: inline-block; margin-top: 40px; color: var(--muted); font-size: 14px; }
+.back-link { display: inline-block; margin-top: 30px; color: var(--muted); font-size: 14px; }
 .back-link:hover { color: var(--text); }
 
 .footer { border-top: 1px solid var(--line); padding: 64px 0 40px; }
