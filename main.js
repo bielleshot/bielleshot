@@ -1,4 +1,4 @@
-// bi.elle_shot — main.js (Autofocus Clean Fade)
+// bi.elle_shot — main.js pulito
 
 document.addEventListener('DOMContentLoaded', () => {
   // Anno dinamico nel footer
