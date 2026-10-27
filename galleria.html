@@ -26,20 +26,32 @@
     </div>
   </nav>
 
-  <!-- ===================== CONTENUTO GALLERIA ===================== -->
+  <!-- ===================== INTESTAZIONE E GRIGLIA ALBUM ===================== -->
   <main>
-    <section class="gallery-head wrap">
-      <h1 class="hero__title">Galleria</h1>
-      <p class="hero__sub">Quattro album, quattro modi di guardare le cose.</p>
-    </section>
+    <header class="gallery-head wrap">
+      <h1 class="gallery-head__title">Galleria</h1>
+      <p class="gallery-head__sub">Quattro album, quattro modi di guardare le cose.</p>
+    </header>
 
-    <section class="section">
+    <section class="section" style="padding-top: 24px;">
       <div class="wrap">
-        <div style="display: flex; flex-direction: column; gap: 16px; font-size: 20px; font-family: var(--font-display);">
-          <a href="#" style="color: var(--text); transition: color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">Auto →</a>
-          <a href="#" style="color: var(--text); transition: color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">Ritratti →</a>
-          <a href="#" style="color: var(--text); transition: color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">Paesaggi →</a>
-          <a href="#" style="color: var(--text); transition: color 0.15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">Mix →</a>
+        <div class="grid grid--albums">
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Auto</span>
+          </a>
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Ritratti</span>
+          </a>
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Paesaggi</span>
+          </a>
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Mix</span>
+          </a>
         </div>
       </div>
     </section>
