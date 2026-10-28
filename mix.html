@@ -3,55 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mix — Bielle Shot</title>
-<meta name="description" content="Album Mix — Bielle Shot.">
+<title>Galleria — Bielle Shot</title>
+<meta name="description" content="Galleria fotografica automotive e ritratti di Bielle Shot.">
 
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="nav">
-  <a href="index.html" class="nav__mark">Bielle Shot</a>
-  <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav__menu" id="navMenu">
-    <a href="index.html">Home</a>
-    <a href="galleria.html">Galleria</a>
-    <a href="contatti.html">Contatti</a>
-  </div>
-</nav>
-
-<header class="gallery-head">
-  <div class="wrap">
-    <h1 class="gallery-head__title">Mix</h1>
-    <p class="gallery-head__sub">Il resto: scatti che non stanno in una sola categoria.</p>
-  </div>
-</header>
-
-<section class="section" style="border-top:none;">
-  <div class="wrap">
-    <div class="grid grid--3">
-      <div class="grid__item"><div class="ph"></div></div>
-      <div class="grid__item"><div class="ph"></div></div>
-      <div class="grid__item"><div class="ph"></div></div>
+<div class="page-container">
+  <nav class="nav">
+    <a href="index.html" class="nav__logo-link">
+      <img src="IMG_2298.png" alt="Bielle Shot" class="nav__logo-img">
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav__menu" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="galleria.html">Galleria</a>
+      <a href="contatti.html">Contatti</a>
     </div>
-    <a href="galleria.html" class="back-link">← Torna alla galleria</a>
-  </div>
-</section>
+  </nav>
 
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__row">
-      <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
-      <a href="contatti.html" class="footer__cta">Scrivimi →</a>
+  <!-- ===================== GALLERIA ===================== -->
+  <main>
+    <header class="gallery-head">
+      <div class="wrap">
+        <h1 class="gallery-head__title">Galleria</h1>
+        <p class="gallery-head__sub">Quattro album, quattro modi di guardare le cose.</p>
+      </div>
+    </header>
+
+    <section class="section" style="padding-top: 24px;">
+      <div class="wrap">
+        <div class="grid grid--albums">
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Auto</span>
+          </a>
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Ritratti</span>
+          </a>
+          <a href="#" class="album-card">
+            <div class="ph"></div>
+            <span class="album-card__name">Paesaggi</span>
+          </a>
+          <!-- Sostituisci "mix.html" qui sotto con il nome esatto del link o del percorso della tua cartella/pagina Mix esistente -->
+          <a href="mix.html" class="album-card">
+            <div class="ph" style="padding: 0; overflow: hidden;">
+              <img src="Foto6.png" alt="Mix" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <span class="album-card__name">Mix</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__row">
+        <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
+        <a href="contatti.html" class="footer__cta">Scrivimi →</a>
+      </div>
+      <div class="footer__meta">
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <span>© <span id="year"></span> Bielle Shot</span>
+          <span style="font-size: 12px; opacity: 0.8;">Parma, Emilia-Romagna</span>
+        </div>
+        <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
+      </div>
     </div>
-    <div class="footer__meta">
-      <span>© <span id="year"></span> Bielle Shot</span>
-      <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </div>
-</footer>
+  </footer>
+</div>
 
 <script src="main.js"></script>
 </body>
