@@ -1,85 +1,49 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bielle Shot — Fotografia auto &amp; ritratti</title>
-<meta name="description" content="Bielle Shot — fotografia automotive e ritrattistica a Parma.">
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bi.elle Detailing - Fotografia Automotive</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --line: #222222;
+    }
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .hero__figure {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .hero__figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Overlay Mirino Autofocus -->
-<div id="autofocusOverlay" class="af-overlay">
-  <div class="af-reticle">
-    <div class="af-corner tl"></div>
-    <div class="af-corner tr"></div>
-    <div class="af-corner bl"></div>
-    <div class="af-corner br"></div>
+  <header class="hero">
+    <h1>Bi.elle Detailing</h1>
+    <p>Non è solo come appare, è come lo guardi.</p>
     
-    <div class="af-logo-box">
-      <img src="IMG_2298.png" alt="Bielle Shot Logo">
+    <!-- Blocco della foto con adattamento automatico (verticale o orizzontale) -->
+    <div class="hero__figure">
+      <img src="408.webp" alt="Fotografia Automotive Bielle Shot" fetchpriority="high">
     </div>
+  </header>
 
-    <div class="af-status">Bielle Shot</div>
-  </div>
-</div>
-
-<div class="page-container">
-  <nav class="nav">
-    <a href="index.html" class="nav__logo-link">
-      <img src="IMG_2298.png" alt="Bielle Shot" class="nav__logo-img">
-    </a>
-    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Apri menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav__menu" id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="galleria.html">Galleria</a>
-      <a href="contatti.html">Contatti</a>
-    </div>
-  </nav>
-
-  <!-- ===================== MAIN ===================== -->
-  <main>
-    <header class="hero" id="top">
-      <div class="wrap" style="display:grid; grid-template-columns:inherit; gap:inherit; grid-column:1/-1;">
-        <div class="hero__text">
-          <h1 class="hero__title">
-            Non è solo come appare, è come lo <em>guardi.</em>
-          </h1>
-
-          <p class="hero__sub">
-            Ogni dettaglio racconta una storia: che sia un oggetto o una posa, dipende tutto dal punto di vista.
-          </p>
-        </div>
-
-        <figure class="hero__figure" style="aspect-ratio: 4/3;">
-          <img src="408.webp" alt="Fotografia Automotive Bielle Shot" width="1200" height="900" fetchpriority="high" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </figure>
-      </div>
-    </header>
-  </main>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer__row">
-        <h2 class="footer__title">Parliamo del tuo prossimo shooting.</h2>
-        <a href="contatti.html" class="footer__cta">Scrivimi →</a>
-      </div>
-      <div class="footer__meta">
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <span>© <span id="year"></span> Bielle Shot</span>
-          <span style="font-size: 12px; opacity: 0.9;">Parma, Emilia-Romagna</span>
-        </div>
-        <a href="https://instagram.com/bi.elle_shot" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<script src="main.js"></script>
 </body>
 </html>
