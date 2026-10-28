@@ -211,7 +211,7 @@ body {
   }
 }
 
-/* --- OVERLAY AUTOFOCUS --- */
+/* --- OVERLAY AUTOFOCUS & ANIMAZIONI --- */
 .af-overlay {
   position: fixed;
   inset: 0;
@@ -221,6 +221,11 @@ body {
   justify-content: center;
   align-items: center;
   transition: opacity 0.6s ease;
+}
+
+.af-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .af-reticle {
