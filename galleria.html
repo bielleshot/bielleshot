@@ -36,25 +36,43 @@
 
     <section class="section" style="padding-top: 24px;">
       <div class="wrap">
-        <div class="grid grid--albums">
-          <a href="auto.html" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Auto</span>
-          </a>
-          <a href="ritratti.html" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Ritratti</span>
-          </a>
-          <a href="paesaggi.html" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Paesaggi</span>
-          </a>
-          <a href="mix.html" class="album-card">
-            <div class="ph" style="padding: 0; overflow: hidden;">
-              <img src="Foto6.png" alt="Mix" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div class="grid grid--albums" style="display: flex; flex-direction: column; gap: 24px; max-width: 800px; margin: 0 auto;">
+          
+          <!-- Album Auto -->
+          <a href="auto.html" class="album-card" style="display: block; background: #000; border: 1px solid var(--line); overflow: hidden; text-decoration: none; position: relative;">
+            <div class="ph" style="padding: 0; overflow: hidden; height: auto;">
+              <!-- Sostituisci l'immagine di copertina quando vorrai -->
+              <img src="Foto1.png" alt="Auto" style="width: 100%; height: auto; display: block;">
             </div>
-            <span class="album-card__name">Mix</span>
+            <span class="album-card__name" style="padding: 12px; display: block; color: var(--text); font-weight: 500;">Auto</span>
           </a>
+
+          <!-- Album Ritratti -->
+          <a href="ritratti.html" class="album-card" style="display: block; background: #000; border: 1px solid var(--line); overflow: hidden; text-decoration: none; position: relative;">
+            <div class="ph" style="padding: 0; overflow: hidden; height: auto;">
+              <!-- Sostituisci l'immagine di copertina quando vorrai -->
+              <img src="Foto3.png" alt="Ritratti" style="width: 100%; height: auto; display: block;">
+            </div>
+            <span class="album-card__name" style="padding: 12px; display: block; color: var(--text); font-weight: 500;">Ritratti</span>
+          </a>
+
+          <!-- Album Paesaggi -->
+          <a href="paesaggi.html" class="album-card" style="display: block; background: #000; border: 1px solid var(--line); overflow: hidden; text-decoration: none; position: relative;">
+            <div class="ph" style="padding: 0; overflow: hidden; height: auto;">
+              <!-- Sostituisci l'immagine di copertina quando vorrai -->
+              <img src="Foto4.png" alt="Paesaggi" style="width: 100%; height: auto; display: block;">
+            </div>
+            <span class="album-card__name" style="padding: 12px; display: block; color: var(--text); font-weight: 500;">Paesaggi</span>
+          </a>
+
+          <!-- Album Mix -->
+          <a href="mix.html" class="album-card" style="display: block; background: #000; border: 1px solid var(--line); overflow: hidden; text-decoration: none; position: relative;">
+            <div class="ph" style="padding: 0; overflow: hidden; height: auto;">
+              <img src="Foto6.png" alt="Mix" style="width: 100%; height: auto; display: block;">
+            </div>
+            <span class="album-card__name" style="padding: 12px; display: block; color: var(--text); font-weight: 500;">Mix</span>
+          </a>
+
         </div>
       </div>
     </section>
