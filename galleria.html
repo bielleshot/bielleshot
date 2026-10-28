@@ -30,29 +30,39 @@
     <header class="gallery-head">
       <div class="wrap">
         <h1 class="gallery-head__title">Galleria</h1>
-        <p class="gallery-head__sub">Quattro album, quattro modi di guardare le cose.</p>
+        <p class="gallery-head__sub">I miei scatti in evidenza.</p>
       </div>
     </header>
 
-    <section class="section" style="padding-top: 24px;">
+    <section class="section" style="padding-top: 24px; padding-bottom: 60px;">
       <div class="wrap">
-        <div class="grid grid--albums">
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Auto</span>
-          </a>
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Ritratti</span>
-          </a>
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Paesaggi</span>
-          </a>
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Mix</span>
-          </a>
+        <!-- Griglia per le foto HDR in PNG -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto1.png" alt="Bielle Shot HDR 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto2.png" alt="Bielle Shot HDR 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto3.png" alt="Bielle Shot HDR 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto4.png" alt="Bielle Shot HDR 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto5.png" alt="Bielle Shot HDR 5" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto6.png" alt="Bielle Shot HDR 6" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+
         </div>
       </div>
     </section>
