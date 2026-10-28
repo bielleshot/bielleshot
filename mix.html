@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galleria — Bielle Shot</title>
-<meta name="description" content="Galleria fotografica automotive e ritratti di Bielle Shot.">
+<title>Mix — Bielle Shot</title>
+<meta name="description" content="Album Mix - Bielle Shot">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -25,37 +25,47 @@
     </div>
   </nav>
 
-  <!-- ===================== GALLERIA ===================== -->
+  <!-- ===================== ALBUM MIX ===================== -->
   <main>
     <header class="gallery-head">
       <div class="wrap">
-        <h1 class="gallery-head__title">Galleria</h1>
-        <p class="gallery-head__sub">Quattro album, quattro modi di guardare le cose.</p>
+        <h1 class="gallery-head__title">Mix</h1>
+        <p class="gallery-head__sub">Scatti in evidenza e dettagli in alta definizione.</p>
       </div>
     </header>
 
-    <section class="section" style="padding-top: 24px;">
+    <section class="section" style="padding-top: 24px; padding-bottom: 60px;">
       <div class="wrap">
-        <div class="grid grid--albums">
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Auto</span>
-          </a>
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Ritratti</span>
-          </a>
-          <a href="#" class="album-card">
-            <div class="ph"></div>
-            <span class="album-card__name">Paesaggi</span>
-          </a>
-          <!-- Sostituisci "mix.html" qui sotto con il nome esatto del link o del percorso della tua cartella/pagina Mix esistente -->
-          <a href="mix.html" class="album-card">
-            <div class="ph" style="padding: 0; overflow: hidden;">
-              <img src="Foto6.png" alt="Mix" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-            <span class="album-card__name">Mix</span>
-          </a>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto1.png" alt="Bielle Shot HDR 1" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto2.png" alt="Bielle Shot HDR 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto3.png" alt="Bielle Shot HDR 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto4.png" alt="Bielle Shot HDR 4" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+          
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto5.png" alt="Bielle Shot HDR 5" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+
+          <div style="border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4/3;">
+            <img src="Foto6.png" alt="Bielle Shot HDR 6" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          </div>
+
+        </div>
+
+        <div style="margin-top: 32px;">
+          <a href="galleria.html" style="color: var(--text); text-decoration: underline; font-size: 14px;">← Torna alla Galleria</a>
         </div>
       </div>
     </section>
